@@ -1,9 +1,19 @@
+import Chat from "./components/Chat/Chat"
+import Leaderboard from "./components/Leaderboard/Leaderboard"
+import Question from "./components/Question/Question"
+import Submit from "./components/Submit/Submit"
 
 function App() {
 
   return (
-    <div className=" bg-custom-radial h-screen w-screen">
-      <h1 className="text-blue-300">Hello World</h1>  
+    <div className=" bg-custom-radial h-screen w-screen pt-[7%]">
+      <h1 className=" font-tourney font-medium text-6xl text-white text-center">PIXIREEEEE</h1>
+      <section className="flex justify-around">
+        <Leaderboard />
+        <Question />
+        <Chat />
+      </section>
+      <Submit />
     </div>
   )
 }

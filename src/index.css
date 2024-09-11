@@ -9,6 +9,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
