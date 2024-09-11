@@ -10,10 +10,12 @@ const Chat = () => {
 
   // Initialize the socket connection and listen for incoming messages
   useEffect(() => {
-    // Listen for 'chatMessage' events from the server
-    socket.on('chatMessage', (data) => {
-        console.log(data);
-      setChats((prevChats) => [{ name: data.user, text: data.msg }, ...prevChats]);
+
+    // Listen for 'chatMessage' events from the server, which now send both the message and the room
+    socket.on('messageRecieved', ({ user, msg, room }) => {
+      console.log(`Message from ${user} in room ${room}: ${msg}`);
+      console.log("Message 2")
+      setChats((prevChats) => [{ name: user, text: msg }, ...prevChats]);
     });
 
     // Cleanup the socket listener on component unmount
@@ -25,8 +27,9 @@ const Chat = () => {
   const addChat = () => {
     if (input.trim() === '') return;
 
-    // Emit the message to the server
-    socket.emit('chatMessage', input, 'room1'); // Emit to the room
+    const room = 'room1'; // Specify the room you are chatting in
+    // Emit the message to the server along with the room
+    socket.emit('chatMessage', input, room);
 
     // Optionally: Add the message to the local state to show it immediately (before server response)
     setChats([{ name: 'You', text: input }, ...chats]);
