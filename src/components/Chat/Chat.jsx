@@ -1,15 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { io } from 'socket.io-client';
+
+// Create a socket instance outside of the component so it doesn't reconnect every time
+const socket = io('http://localhost:3000');
 
 const Chat = () => {
-  const [chats, setChats] = useState([
-  ]);
+  const [chats, setChats] = useState([]); // Chat array to store messages
+  const [input, setInput] = useState(''); // Chat input
 
-  const [input, setInput] = useState(''); 
+  // Initialize the socket connection and listen for incoming messages
+  useEffect(() => {
+    // Listen for 'chatMessage' events from the server
+    socket.on('chatMessage', (data) => {
+        console.log(data);
+      setChats((prevChats) => [{ name: data.user, text: data.msg }, ...prevChats]);
+    });
+
+    // Cleanup the socket listener on component unmount
+    return () => {
+      socket.off('chatMessage');
+    };
+  }, []);
 
   const addChat = () => {
     if (input.trim() === '') return;
-    setChats([{ name: "Wadad", text: input }, ...chats]);
-    setInput('');
+
+    // Emit the message to the server
+    socket.emit('chatMessage', input, 'room1'); // Emit to the room
+
+    // Optionally: Add the message to the local state to show it immediately (before server response)
+    setChats([{ name: 'You', text: input }, ...chats]);
+    setInput(''); // Clear the input after submission
   };
 
   return (
