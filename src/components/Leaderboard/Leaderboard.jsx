@@ -3,7 +3,7 @@ const participants =[{name:"Samraath",score:100},{name:"Gulam",score:50},{name:"
 
 const Leaderboard = () => {
   return (
-    <div className="border-2 border-primary rounded-md p-4 shadow-custom-drop">
+    <div className="border-2 border-primary rounded-md p-4 shadow-custom-drop bg-secondary">
         <header className="flex justify-between items-center">
         <h1 className="font-bold text-2xl">Leaderboard</h1>
         <aside className="flex flex-col">

@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors:{
-        primary:"#FF86FF"
+        primary:"#FF86FF",
+        secondary:"#09000A",
+        light:"#17001C"
       },
       fontFamily: {
         tourney: ['Tourney', 'sans-serif'],
@@ -17,6 +19,7 @@ export default {
       },
       boxShadow: {
         'custom-drop': '0 0 12.7px rgba(0, 0, 0, 0.25)', // X=0, Y=0, Blur=12.7px, Spread=0, and 25% opacity
+        'button-drop': '0 0 12.7px rgba(255, 134, 255, 1)'
       },
     },
   },

@@ -2,7 +2,7 @@ const chats =[{name:"Samraath",text:"GG"},{name:"Gulam",text:"I almost missed it
 
 const Chat = () => {
   return (
-    <div className="border-2 border-primary rounded-md p-4 px-3 shadow-custom-drop relative flex flex-col">
+    <div className="border-2 border-primary rounded-md bg-secondary p-4 px-3 shadow-custom-drop text-left relative flex flex-col">
         <h1 className=" font-medium sticky top-0">Room chat</h1>
         <ul className="flex flex-col-reverse gap-y-4 mt-4 h-1 grow overflow-y-scroll">
         {chats.map((chat,index)=>(
