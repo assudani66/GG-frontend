@@ -1,10 +1,10 @@
-const chats =[{name:"Samraath",text:"GG"},{name:"Gulam",text:"I almost missed it by 3px"},{name:"Badsha",text:"Bruh Samraath is him"}]
+const chats =[{name:"Wadad",text:"GG"},{name:"Piyush",text:"I almost missed it by 3px"}]
 
 const Chat = () => {
   return (
     <div className="border-2 border-primary rounded-md bg-secondary p-4 px-3 shadow-custom-drop text-left relative flex flex-col">
         <h1 className=" font-medium sticky top-0">Room chat</h1>
-        <ul className="flex flex-col-reverse gap-y-4 mt-4 h-1 grow overflow-y-scroll">
+        <ul className="flex flex-col-reverse gap-y-4 my-4 h-1 grow overflow-y-scroll">
         {chats.map((chat,index)=>(
             <li key={index} className="flex flex-col">
                 <p className="font-bold text-[9.79px] leading-3">{chat.name}</p>

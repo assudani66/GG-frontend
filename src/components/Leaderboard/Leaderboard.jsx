@@ -1,5 +1,5 @@
 
-const participants =[{name:"Samraath",score:100},{name:"Gulam",score:50},{name:"Badsha",score:25}]
+const participants =[{name:"Wadad",score:0},{name:"Piyush",score:0}]
 
 const Leaderboard = () => {
   return (
@@ -7,7 +7,7 @@ const Leaderboard = () => {
         <header className="flex justify-between items-center">
         <h1 className="font-bold text-2xl">Leaderboard</h1>
         <aside className="flex flex-col">
-            <p className="text-sm"><span className=" text-2xl">4</span>/5</p>
+            <p className="text-sm"><span className=" text-2xl">1</span>/1</p>
             <small className=" text-[8px] -mt-1.5">Rounds</small>
         </aside>
         </header>
